@@ -5,10 +5,12 @@ import styles from './Products.style'
 import { Header } from '../../components/Index'
 import { SearchInput } from '../../components/Index'
 
-const Products = ({category,setProductSelected}) => {
+const Products = ({navigation, route}) => {
   
   const [arrProducts,setArrProducts] = useState([])
   const [keyword,setKeyword] = useState([])
+
+  const { category } = route.params;
 
   useEffect(() => {
     if(category){
@@ -36,7 +38,7 @@ const Products = ({category,setProductSelected}) => {
           data={arrProducts} 
           renderItem={({item}) => (
             <View>
-              <TouchableOpacity onPress={()=> {setProductSelected(item)}}>
+              <TouchableOpacity onPress={()=> {navigation.navigate('Details',{item})}}>
                 <Text>{item.title}</Text>
               </TouchableOpacity>
             </View>

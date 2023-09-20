@@ -1,7 +1,7 @@
 import { useState } from 'react';
-import { Home, Products, Detail } from './src/screens/Index'
 import {useFonts} from 'expo-font'
 import fonts from './src/global/fonts';
+import StackNavigator from './src/navigation/StackNavigator';
 
 export default function App() {
 
@@ -14,11 +14,6 @@ export default function App() {
     return null
   }
 
-  return productSelected ? <Detail product={productSelected} setProductSelected={setProductSelected} /> :
-  categorySelected ? (
-    <Products category={categorySelected} setProductSelected={setProductSelected} />
-  ) : (
-    <Home setCategorySelected={setCategorySelected} />
-  )
+  return <StackNavigator />
 
 }

@@ -3,10 +3,10 @@ import { Text, Pressable } from 'react-native'
 import { CardProduct } from '../../../../components/Index' 
 import styles from './Item.style'
 
-const CategoryItem = ({category,setCategorySelected}) => {
+const CategoryItem = ({category,navigation}) => {
   return (
     <>
-      <Pressable onPress={()=> {setCategorySelected(category)}}>
+      <Pressable onPress={()=> {navigation.navigate('Products', { category })}}>
         <CardProduct style={styles.cardContainer}>
           <Text style={styles.text}>{category}</Text>
         </CardProduct>
